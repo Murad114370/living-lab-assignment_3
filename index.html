@@ -1,29 +1,312 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Living Lab</title>
+
     <!-- Google Font Sora -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/516bfcc520.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/516bfcc520.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .font-sora {
+        font-family: "Sora", serif;
+      }
+    </style>
+
     <!-- tailwind cdn -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-          theme: {
-            extend: {
-              colors: {
-                clifford: '#da373d',
-              }
-            }
-          }
-        }
-      </script>
-</head>
-<body>
-    
-</body>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+            },
+            animation: {
+              "spin-slow": "spin 8s linear infinite",
+              bounce: "bounce 1s infinite",
+              'zoom-in': 'zoom-in 1.5s ease-in-out',
+            },
+            keyframes: {
+              spin: {
+                "0%, 100%": { transform: "rotate(0deg)" },
+                "50%": { transform: "rotate(360deg)" },
+              },
+              bounce: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-25%)" },
+              },
+              "zoom-in": {
+                "0%": { transform: "scale(0.8)", opacity: "0" },
+                "100%": { transform: "scale(1)", opacity: "1" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="font-sora">
+    <!-- header section -->
+    <header
+      class="max-w-screen-2xl mx-auto bg-gradient-to-b from-stone-50 to-stone-300 animation-fade-in"
+    >
+      <nav
+        class="container mx-auto flex justify-between items-center p-4 shadow-md bg-white"
+      >
+        <!-- Logo -->
+        <div class="w-16 md:w-24 lg:w-32 animate-spin-slow">
+          <img src="c2-assets/logo-header.png" alt="Logo" />
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex flex-grow justify-center items-center">
+          <ul class="flex space-x-8">
+            <li><a href="#" class="hover:text-green-600">Product</a></li>
+            <li><a href="#" class="hover:text-green-600">Services</a></li>
+            <li><a href="#" class="hover:text-green-600">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Icons & Buttons -->
+        <div class="hidden md:flex items-center space-x-6">
+          <i
+            class="fa-solid fa-magnifying-glass text-gray-600 hover:text-green-600 cursor-pointer"
+          ></i>
+          <i
+            class="fa-solid fa-cart-shopping text-gray-600 hover:text-green-600 cursor-pointer"
+          ></i>
+          <button
+            class="border border-green-600 px-4 py-2 rounded-lg font-bold hover:bg-green-600 hover:text-white transition duration-300"
+          >
+            Login
+          </button>
+          <button
+            class="border bg-green-600 text-white rounded-lg px-6 py-2 font-bold hover:bg-green-700 transition duration-300"
+          >
+            Register
+          </button>
+        </div>
+
+        <!-- Mobile Hamburger Menu -->
+        <div class="md:hidden">
+          <button id="menu-toggle">
+            <i class="fa-solid fa-bars text-green-600 text-2xl"></i>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Responsive Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="hidden flex flex-col items-center space-y-4 p-4 bg-gray-100"
+      >
+        <ul class="flex flex-col space-y-4 text-center">
+          <li><a href="#" class="hover:text-green-600">Product</a></li>
+          <li><a href="#" class="hover:text-green-600">Services</a></li>
+          <li><a href="#" class="hover:text-green-600">Contact us</a></li>
+        </ul>
+        <hr class="w-full border-gray-300" />
+        <div class="flex space-x-4">
+          <i class="fa-solid fa-magnifying-glass text-gray-600"></i>
+          <i class="fa-solid fa-cart-shopping text-gray-600"></i>
+        </div>
+      </div>
+
+      <div class="text-center mt-20 px-4">
+        <div>
+          <h1 class="text-3xl sm:text-5xl font-bold">
+            Freshness
+            <span class="text-green-600">
+              You Can <br class="hidden sm:block" />
+              Count
+            </span>
+            On, Prices You’ll Love!
+          </h1>
+          <p class="text-sm sm:text-base text-gray-700 mt-4 sm:mt-6">
+            Shop your daily essentials at unbeatable prices. From fresh produce
+            to pantry staples, we’ve got you covered every day!
+          </p>
+        </div>
+        <img
+          class="w-full max-w-xs sm:max-w-screen-sm mx-auto animation-zoom-in"
+          src="c2-assets/hero-vegetables.png"
+          alt="Fresh Vegetables"
+        />
+      </div>
+    </header>
+
+    <!-- main section -->
+    <main class="max-w-screen-xl mx-auto">
+      <section class="py-8 lg:py-24 px-4 sm:px-8 lg:px-24">
+        <!-- Services-title -->
+        <div class="mb-8 text-2xl font-semibold">
+          <h3 class="text-green-500">Services</h3>
+        </div>
+        <!-- Grid-Card -->
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-center"
+        >
+          <!-- services-card-1 -->
+          <div
+            class="rounded-lg shadow-md bg-stone-200 overflow-hidden w-full max-w-xs mx-auto flex flex-col items-center p-6"
+          >
+            <!-- Image Container -->
+            <div
+              class="bg-white p-4 rounded-full flex justify-center items-center"
+            >
+              <img
+                class="w-16 h-16"
+                src="./c2-assets/service.png"
+                alt="Service Image"
+              />
+            </div>
+            <!-- Title -->
+            <h4 class="text-black font-semibold mt-4 text-lg">24/7 Services</h4>
+            <!-- Description -->
+            <p class="text-sm text-gray-600 text-center mt-2 px-6">
+              24/7 services means services that are available 24 hours a day, 7
+              days a week, without any breaks.
+            </p>
+          </div>
+
+          <!-- services-card-2 -->
+          <div
+            class="rounded-lg shadow-md bg-stone-200 overflow-hidden w-full max-w-xs mx-auto flex flex-col items-center p-6"
+          >
+            <div
+              class="bg-white p-4 rounded-full flex justify-center items-center"
+            >
+              <img
+                class="w-16 h-16"
+                src="./c2-assets/delivery.png"
+                alt="Service Image"
+              />
+            </div>
+            <h4 class="text-black font-semibold mt-4 text-lg">Fast Delivery</h4>
+            <p class="text-sm text-gray-600 text-center mt-2 px-6">
+              Fast Delivery ensures products reach the customer as quickly as
+              possible.
+            </p>
+          </div>
+
+          <!-- services-card-3 -->
+          <div
+            class="rounded-lg shadow-md bg-stone-200 overflow-hidden w-full max-w-xs mx-auto flex flex-col items-center p-6"
+          >
+            <div
+              class="bg-white p-4 rounded-full flex justify-center items-center"
+            >
+              <img
+                class="w-16 h-16"
+                src="./c2-assets/healthy.png"
+                alt="Service Image"
+              />
+            </div>
+            <h4 class="text-black font-semibold mt-4 text-lg">
+              Healthy Products
+            </h4>
+            <p class="text-sm text-gray-600 text-center mt-2 px-6">
+              Healthy Products promote well-being and are beneficial to health.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-8 lg:py-24 px-4 sm:px-8 lg:px-24">
+        <!-- Quantity-title -->
+        <div class="mb-8 text-2xl font-semibold">
+          <h3 class="text-amber-700">Quantity</h3>
+        </div>
+        <!-- Grid-Card -->
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-center"
+        >
+          <!-- quantity-card-1 -->
+          <div
+            class="rounded-lg shadow-md bg-stone-200 overflow-hidden w-full max-w-xs mx-auto flex flex-col items-center p-6"
+          >
+            <div
+              class="bg-white p-4 rounded-full flex justify-center items-center"
+            >
+              <img
+                class="w-16 h-16"
+                src="./c2-assets/secure_1.png"
+                alt="Service Image"
+              />
+            </div>
+            <h4 class="text-black font-semibold mt-4 text-lg">
+              Secure Payment
+            </h4>
+            <p class="text-sm text-gray-600 text-center mt-2 px-6">
+              Ensures safe and encrypted transactions for customers.
+            </p>
+          </div>
+
+          <!-- quantity-card-2 -->
+          <div
+            class="rounded-lg shadow-md bg-stone-200 overflow-hidden w-full max-w-xs mx-auto flex flex-col items-center p-6"
+          >
+            <div
+              class="bg-white p-4 rounded-full flex justify-center items-center"
+            >
+              <img
+                class="w-16 h-16"
+                src="./c2-assets/return.jpg"
+                alt="Service Image"
+              />
+            </div>
+            <h4 class="text-black font-semibold mt-4 text-lg">
+              Easy Returns & Refunds
+            </h4>
+            <p class="text-sm text-gray-600 text-center mt-2 px-6">
+              Hassle-free return and refund policies for easy exchanges.
+            </p>
+          </div>
+
+          <!-- quantity-card-3 -->
+          <div
+            class="rounded-lg shadow-md bg-stone-200 overflow-hidden w-full max-w-xs mx-auto flex flex-col items-center p-6"
+          >
+            <div
+              class="bg-white p-4 rounded-full flex justify-center items-center"
+            >
+              <img
+                class="w-16 h-16"
+                src="./c2-assets/premium_1.png"
+                alt="Service Image"
+              />
+            </div>
+            <h4 class="text-black font-semibold mt-4 text-lg">
+              Premium Quality
+            </h4>
+            <p class="text-sm text-gray-600 text-center mt-2 px-6">
+              High-quality products with strict quality control.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- footer section -->
+    <footer></footer>
+
+    <script>
+      const menuToggle = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+    </script>
+  </body>
 </html>
